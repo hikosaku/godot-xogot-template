@@ -24,6 +24,7 @@
 | Godot MCP Toolkit | **1.0.2**（公式リリース zip、SHA256 `0416b234…2f53`） | 公式：Godot 4.2 以上、4.7.0 までテスト済み、デスクトップ専用 |
 | MCP サーバー | `@npgamedev/godot-mcp-server`（npx が最新版を取得） | package.json：`"node": ">=22"` |
 | 必要な Node.js | **22 以上**（Mac のみ） | 同上 |
+| Mac に入れた Node.js | **26.9.0**（Homebrew） | MCP Toolkit のドックで Node.js 検出を確認 |
 
 ### Godot 4.6（現行の iPhone 版 Xogot）との互換性について
 
@@ -31,6 +32,24 @@
 - 念のため **Godot 4.6.1 公式ビルドでも検証済み**です。両プラグインを有効にした状態でエディタ読み込み・ゲーム実行ともに Parse Error なし。Cyclops が 4.7 で追加された API を使っていないことも API 一覧の差分で確認しました。
 - iPhone 版 Xogot が 4.7 系に上がれば公式対応の範囲に入ります。
 - 4.7 で保存したプロジェクトを 4.6 系で開くと「新しいバージョンで作られたプロジェクトです」という確認が出ることがあります。そのまま開いて問題ありません。
+
+## 動作確認済みの環境（2026-09-23）
+
+| 環境 | 結果 |
+| --- | --- |
+| Godot 4.7.2（Mac の Godot.app） | 開ける・エラー 0 / 警告 0・両プラグイン読み込み・MCP 待ち受け（127.0.0.1:6550） |
+| Xogot for Mac 1.7.2（Engine 4.7.2） | 開ける・Cyclops のパネル（Cyclops / Materials / UV Editor）表示・MCP 待ち受け |
+| Godot 4.6.1（現行 iPhone 版 Xogot と同系統） | 開ける・Parse Error なし（検証用の公式ビルドで確認） |
+| iPhone 版 Xogot 実機 | 未確認 |
+
+- Xogot ではツールバーに「PanelContainer のサポートがありません」と表示されます。Cyclops がツールバーに追加する部品の一部を Xogot が表示できないという意味です。Cyclops 自体のパネルやメニューは使えます。
+- `project.godot` の `[xogot]` セクションは Xogot が自動で書き込むエディタ状態で、Godot には影響しません。
+- `rendering/textures/vram_compression/import_etc2_astc=true` は iPhone / iPad 用の画像形式（ETC2/ASTC）を作るための設定です。消さないでください。
+
+## GitHub
+
+- リポジトリ：`hikosaku/godot-xogot-template`（**Private**）
+- Mac 版 Xogot の「統合」メニュー（プル / プッシュ）から同期できます。
 
 ## 役割の違い
 
