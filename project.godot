@@ -1,0 +1,23 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="テンプレ"
+config/features=PackedStringArray("4.7", "Forward Plus")
+
+[autoload]
+
+CyclopsAutoload="*res://addons/cyclops_level_builder/cyclops_autoload.tscn"
+MCPRuntimeServer="*res://addons/godot_mcp_toolkit/runtime/mcp_runtime_server.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/cyclops_level_builder/plugin.cfg", "res://addons/godot_mcp_toolkit/plugin.cfg")
