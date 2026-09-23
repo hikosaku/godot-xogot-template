@@ -40,9 +40,11 @@
 | Godot 4.7.2（Mac の Godot.app） | 開ける・エラー 0 / 警告 0・両プラグイン読み込み・MCP 待ち受け（127.0.0.1:6550） |
 | Xogot for Mac 1.7.2（Engine 4.7.2） | 開ける・Cyclops のパネル（Cyclops / Materials / UV Editor）表示・MCP 待ち受け |
 | Godot 4.6.1（現行 iPhone 版 Xogot と同系統） | 開ける・Parse Error なし（検証用の公式ビルドで確認） |
-| iPhone 版 Xogot 実機 | 未確認 |
+| iPhone 版 Xogot 実機 | Private リポジトリから取得して開けることを確認 |
+| MCP の通し接続（Mac） | Claude Code（v2.1.267）→ `.mcp.json` → MCP サーバー → Godot で、エディタの状態とコンソールログの取得を確認 |
 
 - Xogot ではツールバーに「PanelContainer のサポートがありません」と表示されます。Cyclops がツールバーに追加する部品の一部を Xogot が表示できないという意味です。Cyclops 自体のパネルやメニューは使えます。
+- Cyclops 1.5.0 の UV Editor パネルで、面を選んでいない状態のときに `Invalid access to property or key 'active_face' on a base object of type 'Nil'`（uv_editor.gd:394）というエラーが出ることがあります。Cyclops 本体の不具合で、面を選べば出なくなります。プロジェクトには影響しないので、プラグインのファイルは書き換えていません。
 - `project.godot` の `[xogot]` セクションは Xogot が自動で書き込むエディタ状態で、Godot には影響しません。
 - `rendering/textures/vram_compression/import_etc2_astc=true` は iPhone / iPad 用の画像形式（ETC2/ASTC）を作るための設定です。消さないでください。
 
