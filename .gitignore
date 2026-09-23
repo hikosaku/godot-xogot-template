@@ -6,3 +6,6 @@
 
 # Cyclops Level Builder が起動時に自動生成する個人用設定ファイル
 cyclops_settings.config
+
+# Claude Code の個人設定（MCP の許可など。各自の環境で作られる）
+.claude/settings.local.json
